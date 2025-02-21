@@ -7,7 +7,6 @@
 
 import Coenttb_Vapor
 import Mailgun
-import Coenttb_Authentication
 import Coenttb_Com_Shared
 import Coenttb_Identity_Provider
 
@@ -301,14 +300,5 @@ extension Mailgun.Client: @retroactive DependencyKey {
             baseUrl: baseURL,
             domain: domain
         )
-    }
-}
-
-extension ((Send.Request) async throws -> Send.Response)? {
-    func withLog(_ sendRequest: Send.Request) {
-        if let response = self?(sendRequest) {
-            @Dependency(\.logger) var logger
-            logger.info("Email sent successfully: \(response)")
-        }
     }
 }

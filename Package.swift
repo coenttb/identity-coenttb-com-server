@@ -64,17 +64,17 @@ let package = Package(
             name: .vaporApp,
             dependencies: [
                 .coenttbVapor,
-                .coenttbVapor,
-                .coenttbVapor,
                 .identityCoenttbCom,
-                .queuesFluentDriver
+                .coenttbIdentityProvider,
+                .queuesFluentDriver,
+                .coenttbComShared,
             ]
         ),
         .executableTarget(
             name: .server,
             dependencies: [
                 .vaporApp,
-                .coenttbVapor,
+                .coenttbVapor
             ]
         ),
         .executableTarget(
